@@ -1,0 +1,86 @@
+
+
+
+
+<!--
+<div>
+    <fusioncharts width="700" height="400" type="Column2d" [dataSource]="dataSource" > </fusioncharts>
+</div>
+-->
+
+<div class="row my-margin-top2">
+        <div class="col-md-2"></div>
+        <div class="card bg-light col-md-8">
+            <div class="card-body">
+                <form #compareForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="form-group row text-right">
+                            <label for="roles" class="col-sm-2 control-label"><font class="myColor_red">*</font>Company:</label>
+                            <div class="col-sm-4">
+                                    <input type="text" class="form-control" placeholder="Please input company name"
+                                    name="firstCompany" [(ngModel)]="compareModel.firstCompany" required>
+                            </div>
+                            <label for="roles" class="col-sm-2 control-label text-center">Compare to</label>
+                            <div class="col-sm-4">
+                                    <input type="text" class="form-control" placeholder="Please input company name"
+                                    name="secondCompany" [(ngModel)]="compareModel.secondCompany" >
+                            </div>
+                    </div>
+                    <div class="form-group row text-right">
+                            <label for="roles" class="col-sm-2 control-label"><font class="myColor_red">*</font>Stock Exchange:</label>
+                            <div class="col-sm-4">
+                                    <input type="text" class="form-control" placeholder="Please input stock exchange"
+                                    name="firstExchange" [(ngModel)]="compareModel.firstExchange" required>
+                            </div>
+                            <label for="roles" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-4">
+                                    <input type="text" class="form-control" placeholder="Please input stock exchange"
+                                    name="secondExchange" [(ngModel)]="compareModel.secondExchange" >
+                            </div>
+                    </div>
+        
+                    <div class="form-group row text-right">
+                        <label for="roles" class="col-sm-2 control-label">
+                            <font class="myColor_red">*</font>Chart Type:</label>
+                        <div class="col-sm-4">
+                            <select id="chartTypes" class="form-control" >
+                                    <option *ngFor="let item of chartTypeList" [value]='item'>{{item}}</option> 
+                            </select>
+                            
+                        </div>
+                        
+                        <label for="roles" class="col-sm-6 control-label"></label>
+                    </div>
+
+
+                    <div class="form-group row text-right">
+                        <label for="workingTime" class="col-sm-2 control-label">
+                            <font class="myColor_red">*</font>Period Time:</label>
+                        <div id="datetimepicker-group1" data-target-input="nearest" class="col-sm-4">
+                            <input  id="fromTime" name="fromTime" [(ngModel)]="compareModel.fromTime" 
+                            type="text" class="form-control datetimepicker-compare input-group-addon"
+                            placeholder="start time" />
+                        </div>
+                        <span   class="text-center col-sm-2 text-center">—</span>
+                        <div id="datetimepicker-group2" data-target-input="nearest" class="col-sm-4">
+                            <input  id="toTime" name="toTime" [(ngModel)]="compareModel.toTime" type="text" 
+                            class="form-control datetimepicker-compare input-group-addon"
+                            placeholder="end time" />
+                        </div>
+                        <label for="roles" class="col-sm-2 control-label"></label>
+                    </div>
+
+                        <div class="row-centered" >
+                            <label for="roles" class="col-sm-1 control-label"></label>
+                            <button type="submit" class="btn btn-primary btn-block" [disabled]="!compareForm.form.valid ">
+                            Generate Chart</button>
+                            <label for="roles" class="col-sm-1 control-label"></label>
+                        </div>
+                </form>
+            </div>
+<!--            <div id="dragView" class="row-centered" style="display:none">   -->
+                <div id="dragView" class="row-centered">
+                <fusioncharts width="100%" height="500" type="dragcolumn2d" [dataSource]="dataSource" > </fusioncharts>
+            </div>
+            
+        <div class="col-md-2"></div>  
+</div>        

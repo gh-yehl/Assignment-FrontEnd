@@ -1,0 +1,64 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!-- Toolbar -->
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top ">
+  
+    <div class="container-fluid justify-content-left col-sm-2">
+          <span class="navbar-brand mr-sm-2">FullStack-SBA</span>
+    </div>
+    
+  
+    <div *ngIf="sharedService.isAdmin" id="adminMenu" class="container-fluid justify-content-center col-sm-8">
+        <div>
+          <a class="navbar-brand" routerLink="/importData" routerLinkActive="active">Import Data </a>
+          <a class="navbar-brand" routerLink="/manageCompany" routerLinkActive="active" >Manage Company</a>
+          <a class="navbar-brand"  routerLink="/manageExchange" routerLinkActive="active" >Manage Exchange</a>
+          <a class="navbar-brand" routerLink="/manageIPO" routerLinkActive="active" >Manage IPO Details</a>  
+        </div>
+    </div>
+  
+  
+    <div *ngIf="sharedService.isUser" id="userMenu" class="container-fluid justify-content-center col-sm-8">
+      <div>
+        <a class="navbar-brand" routerLink="/displayIPO" routerLinkActive="active">IPOs</a>
+        <a class="navbar-brand" routerLink="/compareCompany" routerLinkActive="active" >Compare Company</a>
+        <a class="navbar-brand"  routerLink="/compareSector" routerLinkActive="active" >Compare Sectors</a>
+      </div>
+    </div>
+  
+    <div *ngIf="sharedService.isGuest" id="adminMenu" class="container-fluid justify-content-center col-sm-8">
+      <div>
+      </div>
+  </div>
+  
+    <div class="container-fluid justify-content-end col-sm-2">
+      <a class="navbar-brand" routerLink="/login" routerLinkActive="active" >Login</a>
+      <a class="navbar-brand" routerLink="/logout" routerLinkActive="active" >Logout</a>   
+      <a class="navbar-brand" routerLink="/profile" routerLinkActive="active" >Profile</a>      
+    </div>
+  
+  </nav> 
+  
+  <br><br><br>
+  <!--
+  <p>{{ startTime }}</p>
+  <p>{{ endTime }}</p>
+  
+  <input type="text" [(ngModel)]="inputValue"/> 
+    <h1>
+      {{ inputValue }}
+    </h1>
+  -->
+  <router-outlet>
+  </router-outlet>
+  
+  
+  

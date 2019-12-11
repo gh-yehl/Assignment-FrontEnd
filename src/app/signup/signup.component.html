@@ -1,0 +1,77 @@
+<div class="container my-margin-top2">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="card bg-light col-md-8">
+            <div class="card-body">
+              <h3 class="text-center myColor">Signup</h3>
+              <br>
+              <!--{{diagnostic}}-->
+              <form #signupForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                <div id="common">
+
+                    <div class="form-group row text-right">
+                        <label for="userName" class="col-sm-3 control-label">
+                            <font class="myColor_red">*</font>User Name:
+                        </label>
+                        <div class="col-sm-8">
+                            <input id="userName" type="text" class="form-control" placeholder="User Name can be your email address"
+                            name="userName"  [(ngModel)]="signupModle.userName" #userName="ngModel" required>
+                        </div>
+                        <div class="alert alert-danger text-left" [hidden]="userName.valid || userName.pristine">
+                            userName is required
+                        </div>
+                        <label for="roles" class="col-sm-1 control-label">
+                        </label>
+                    </div>
+                    
+                    <div class="form-group row text-right">
+                        <label for="password" class="col-sm-3 control-label">
+                            <font class="myColor_red">*</font>Password:
+                        </label>
+                        <div class="col-sm-8">
+                            <input id="password" type="password" class="form-control" placeholder="Input your password" 
+                            name="password"  [(ngModel)]="signupModle.password" required>
+                        </div>
+                        <label for="roles" class="col-sm-1 control-label">
+                        </label>
+                    </div>
+
+
+                    <div class="form-group row text-right">
+                        <label for="email" class="col-sm-3 control-label">
+                            <font class="myColor_red">*</font>Email:
+                        </label>
+                        <div class="col-sm-8">
+                            <input id="email" type="text" class="form-control" placeholder="Input your valid email"
+                            name="email"  [(ngModel)]="signupModle.email" required>
+                        </div>
+                        <label for="roles" class="col-sm-1 control-label">
+                        </label>
+                    </div>
+
+                    <div class="form-group row text-right">
+                        <label class="col-sm-3 control-label">
+                            Mobile Number:
+                        </label>
+                        <div class="col-sm-8">
+                            <input id="mobileNumber" type="text" class="form-control" placeholder="Input your mobile number"
+                            name="mobileNumber"  [(ngModel)]="signupModle.mobileNumber">
+                        </div>
+                        <label for="roles" class="col-sm-1 control-label">
+                        </label>
+                    </div>
+
+                </div>
+
+                    <div class="row-centered" >
+                        <label for="roles" class="col-sm-1 control-label"></label>
+                        <button type="submit" class="btn btn-primary btn-block" [disabled]="!signupForm.form.valid ">
+                        Register</button>
+                        <label for="roles" class="col-sm-1 control-label"></label>
+                    </div>
+              </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

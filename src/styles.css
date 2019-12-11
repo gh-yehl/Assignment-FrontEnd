@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+.my-margin-top8{
+	margin-top: 8%;
+}
+
+.my-margin-top7{
+	margin-top: 7%;
+}
+
+.my-margin-top6{
+	margin-top: 6%;
+}
+
+.my-margin-top5{
+	margin-top: 5%;
+}
+
+.my-margin-top4{
+	margin-top: 4%;
+}
+
+.my-margin-top3{
+	margin-top: 3%;
+}
+
+.my-margin-top2{
+	margin-top: 2%;
+}
+
+.my-margin-top1{
+	margin-top: 1%;
+}
+
+.my-float-right{
+	float: right;
+}
+
+.my-right{
+	float: right!important;
+}
+
+.my-button-small{
+	width: 80PX;
+}
+.my-button-minor{
+	width: 70PX;
+}
+
+.my-button-middle{
+	width: 100PX;
+}
+
+.my-button-large{
+	width: 120PX;
+}			
+
+.myColor{
+	color: green;
+}
+
+.myColor_red{
+	color: red;
+}
+.blue{
+	color: blue;
+}
+
+.my_btn_bgColor{
+	background:mintcream
+}
+
+.my_input_bgColor{
+	background:mintcream
+}
+
+.my_company_width{
+	width: 98%;
+}

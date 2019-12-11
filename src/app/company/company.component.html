@@ -1,0 +1,196 @@
+
+        <div class="row my-margin-top3">
+            <div class="col-md-1"></div>
+            <div class="card bg-light col-md-10">
+                <div class="card-body">
+                  <h3 class="text-center text-primary">Manage Company</h3>
+                  <br>
+                
+                <form role="form">
+                    
+                    <div class="form-group my-float-right">
+                        <button type="submit" class="btn btn-primary mr-sm-3" style="width:203px;"
+                                data-toggle="modal" data-target="#addCompany" (click)="openCompanyWindow()">Add Company</button>
+                    </div>
+                    <br><br>
+                    <div id="technologyList" class="panel-collapse">
+                        <table data-toggle="table" class="table table-hover table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                  <th>Name</th>
+                                  <th>StockCode</th>
+                                  <th>Exchange</th>
+                                  <th>Turnover</th>
+                                  <th>CEO</th>
+                                  <th>Directors</th>
+                                  <th>Sector</th>
+                                  <th>Brief</th>
+                                  <th>Status</th>
+                                  <th>Edit/Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of companyService.companyList">
+                                  <td class=" col-sm-1">
+                                      <input  name="companyName"  type="text" class="form-control" 
+                                       value={{item.companyName}} (change)="companyNameChange(item,$event.target.value)"/></td>
+                                  <td class=" col-sm-1">
+                                      <input  name="stockCode"   type="text" class="form-control" 
+                                              value={{item.stockCode}} (change)="stockCodeChange(item,$event.target.value)"/>
+                                      </td>
+                                  <td class=" col-sm-1">
+                                      <input  name="stockExchange"   type="text" class="form-control" 
+                                              value={{item.stockExchange}} (change)="stockExchangeChange(item,$event.target.value)"/></td>
+                                  <td class=" col-sm-1">
+                                      <input  name="turnover"   type="text" class="form-control" 
+                                              value={{item.turnover}} (change)="turnoverChange(item,$event.target.value)"/></td>
+                                  <td class=" col-sm-1">
+                                      <input  name="ceo"  type="text" class="form-control" 
+                                       value={{item.ceo}} (change)="ceoChange(item,$event.target.value)"/></td>
+                                  <td class=" col-sm-1">
+                                      <input  name="directors"   type="text" class="form-control" 
+                                              value={{item.directors}} (change)="directorsChange(item,$event.target.value)"/>
+                                      </td>
+                                  <td class=" col-sm-1">
+                                      <input  name="sectorName"   type="text" class="form-control" 
+                                              value={{item.sectorName}} (change)="sectorNameChange(item,$event.target.value)"/></td>
+                                  <td class=" col-sm-1">
+                                      <input  name="brief"   type="text" class="form-control" 
+                                              value={{item.brief}} (change)="briefChange(item,$event.target.value)"/></td>
+                                  <td class=" col-sm-1">
+                                      <input  name="status"   type="text" class="form-control" 
+                                              value={{item.status}} (change)="statusChange(item,$event.target.value)"/></td>   
+                                                                                         
+                                  <td class=" col-sm-3">
+                                      <span style="text-align:right;display:block">
+                                      <button type="submit" class="btn btn-primary my-button-middle mr-sm-1" 
+                                              data-toggle="modal" data-target="#editCompany"
+                                              (click)="editCompany(item)">Save</button>
+                                      <button type="submit" class="btn btn-primary my-button-middle " 
+                                              data-toggle="modal" data-target="#deleteCompany"
+                                              (click)="removeCompany(item)">Remove</button>
+                                      </span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                        </table>								
+                    </div>							
+    
+                </form>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    
+    
+
+    <div class="modal fade" id="addCompany" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel2"><strong>Add Company {{addStatus}}</strong></h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group row text-right">
+                            <label class="col-sm-4 control-label">Company Name:</label>
+                            <div class="col-sm-8">
+                                <input id="companyName" type="text" class="form-control "name="companyName" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-right">
+                                <label class="col-sm-4 control-label">Stock Code:</label>
+                                <div class="col-sm-8">
+                                    <input id="stockCode" type="text" class="form-control "name="stockCode" >
+                                </div>
+                        </div>
+                            
+                        <div class="form-group row text-right">
+                          <label class="col-sm-4 control-label">Stock Exchange:</label>
+                          <div class="col-sm-8">
+                              <input id="stockExchange" type="text" class="form-control" name="stockExchange">
+                          </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <label class="col-sm-4 control-label">Turnover:</label>
+                            <div class="col-sm-8">
+                                <input id="turnover" type="text" class="form-control" name="turnover">
+                            </div>
+                        </div>
+    
+                        <div class="form-group row text-right">
+                          <label class="col-sm-4 control-label">CEO:</label>
+                          <div class="col-sm-8">
+                              <input id="ceo" type="text" class="form-control" name="ceo">
+                          </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <label class="col-sm-4 control-label">Directors:</label>
+                            <div class="col-sm-8">
+                                <input id="directors" type="text" class="form-control" name="directors">
+                            </div>
+                        </div>
+
+                        <div class="form-group row text-right">
+                          <label class="col-sm-4 control-label">Sector Name:</label>
+                          <div class="col-sm-8">
+                              <input id="sectorName" type="text" class="form-control" name="sectorName">
+                          </div>
+                        </div>
+                        <div class="form-group row text-right">
+                            <label class="col-sm-4 control-label">Brief:</label>
+                            <div class="col-sm-8">
+                                <input id="brief" type="text" class="form-control" name="brief">
+                            </div>
+                        </div>
+
+                        
+                        <div class="row-centered" >
+                            <label class="col-sm-1 control-label"></label>
+                            <button id="addCompanyBtn" type="submit" class="btn btn-primary  btn-block" (click)="addCompany()">
+                            Save</button>
+                            <label class="col-sm-1 control-label"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="editCompany" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <p class="text-center"> <strong>Company has been edit successfully! </strong></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal fade" id="deleteCompany" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <p class="text-center"> <strong> {{deleteStatus}} </strong></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    

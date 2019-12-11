@@ -1,0 +1,169 @@
+
+        <div class="row my-margin-top3">
+                <div class="col-md-1"></div>
+                <div class="card bg-light col-md-10">
+                    <div class="card-body">
+                      <h3 class="text-center text-primary">Manage IPODetails</h3>
+                      <br>
+
+                    <form role="form" class="form-horizontal">
+
+                        <div class="form-group  row my-float-right" >
+                            <button type="submit" class="btn btn-primary mr-sm-3 " style="width:190px;"
+                                    data-toggle="modal" data-target="#addIPODetails" (click)="openIPODetailsWindow()">Add IPODetails</button>
+                        </div>
+                        <br><br>
+                        <div class="form-group row-centered panel-collapse">
+                            <table data-toggle="table" class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                      <th>Company Name</th>
+                                      <th>Stock Exchange</th>
+                                      <th>Price per Share</th>
+                                      <th>Number of Shares</th>
+                                      <th>Open Date Time</th>
+                                      <th>Remarks</th>
+                                      <th>Edit/Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of ipoadminService.ipoDetailsList">
+                                      <td class=" col-sm-2">
+                                          <input  name="companyName"  type="text" class="form-control" 
+                                           value={{item.companyName}} (change)="companyNameChange(item,$event.target.value)"/></td>
+                                      <td class=" col-sm-1">
+                                          <input  name="stockExchange"   type="text" class="form-control" 
+                                                  value={{item.stockExchange}} (change)="stockExchangeChange(item,$event.target.value)"/></td>
+                                      <td class=" col-sm-2">
+                                          <input  name="pricePerShare"   type="text" class="form-control" 
+                                                  value={{item.pricePerShare}} (change)="pricePerShareChange(item,$event.target.value)"/></td>
+                                      <td class=" col-sm-2">
+                                          <input  name="numberOfShares"  type="text" class="form-control" 
+                                           value={{item.numberOfShares}} (change)="numberOfSharesChange(item,$event.target.value)"/></td>
+                                      <td class=" col-sm-2">
+                                          <input  name="openTime"   type="text" class="form-control" 
+                                                  value={{item.openTime}} (change)="openTimeChange(item,$event.target.value)"/>
+                                          </td>
+                                      <td class=" col-sm-1">
+                                          <input  name="remarks"   type="text" class="form-control" 
+                                                  value={{item.remarks}} (change)="remarksChange(item,$event.target.value)"/>
+                                          </td>
+                                                                                             
+                                      <td class=" col-sm-2">
+                                          <span style="text-align:right;display:block">
+                                          <button type="submit" class="btn btn-primary my-button-minor mr-sm-1" 
+                                                  data-toggle="modal" data-target="#editIPODetails"
+                                                  (click)="editIPODetails(item)">Save</button>
+                                          <button type="submit" class="btn btn-primary my-button-middle " 
+                                                  data-toggle="modal" data-target="#removeIPODetails"
+                                                  (click)="removeIPODetails(item)">Remove</button>
+                                          </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                            </table>								
+                        </div>							
+        
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        
+        
+    
+        <div class="modal fade" id="addIPODetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel2"><strong>Add IPODetails {{addStatus}}</strong></h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group row text-right">
+                                <label class="col-sm-4 control-label">Company Name:</label>
+                                <div class="col-sm-8">
+                                    <input id="companyName" type="text" class="form-control "name="companyName" >
+                                </div>
+                            </div>
+                            <div class="form-group row text-right">
+                              <label class="col-sm-4 control-label">Stock Exchange:</label>
+                              <div class="col-sm-8">
+                                  <input id="stockExchange" type="text" class="form-control" name="stockExchange">
+                              </div>
+                            </div>
+                            <div class="form-group row text-right">
+                                <label class="col-sm-4 control-label">Price per Share:</label>
+                                <div class="col-sm-8">
+                                    <input id="pricePerShare" type="text" class="form-control" name="pricePerShare">
+                                </div>
+                            </div>
+        
+                            <div class="form-group row text-right">
+                              <label class="col-sm-4 control-label">Total Number of Shares:</label>
+                              <div class="col-sm-8">
+                                  <input id="numberOfShares" type="text" class="form-control" name="numberOfShares">
+                              </div>
+                            </div>
+                            <div class="form-group row text-right">
+                                <label class="col-sm-4 control-label">Open Date Time:</label>
+                                <div class="col-sm-8">
+                                    <input id="openTime" type="text" class="form-control" name="openTime">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row text-right">
+                              <label class="col-sm-4 control-label">Remarks:</label>
+                              <div class="col-sm-8">
+                                  <input id="remarks" type="text" class="form-control" name="remarks">
+                              </div>
+                            </div>   
+                            
+                            <div class="row-centered" >
+                                <label class="col-sm-1 control-label"></label>
+                                <button id="addIPODetailsBtn" type="submit" class="btn btn-primary  btn-block" (click)="addIPODetails()">
+                                Save</button>
+                                <label class="col-sm-1 control-label"></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+        <div class="modal fade" id="editIPODetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div>
+                            <p class="text-center"> <strong>IPODetails has been edit successfully! </strong></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="modal fade" id="removeIPODetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div>
+                            <p class="text-center"> <strong> {{deleteStatus}} </strong></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
