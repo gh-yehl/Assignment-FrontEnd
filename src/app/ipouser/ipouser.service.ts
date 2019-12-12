@@ -11,6 +11,9 @@ export class IpouserService {
   
   public ipoDetailsList: any[];
 
+  readonly searchIPOsURL = FSConfigurations.serverURL + "/company/getIPOsByCompanyName";
+  readonly displayCompanyURL = FSConfigurations.serverURL + "/company/getCompanyByName";
+
   readonly listIPODetailsURL = FSConfigurations.serverURL + "/company/getAllIPODetails";
   readonly addIPODetailsURL = FSConfigurations.serverURL + "/company/addIPODetails";
   readonly editIPODetailsURL = FSConfigurations.serverURL + "/company/editIPODetails";
@@ -52,4 +55,13 @@ export class IpouserService {
     this.getIPODetails();
   }
 
+  public searchIOPs(companyName: string) {
+    const params = new HttpParams().set("companyName", companyName);
+    return this._http.get<any[]>(this.searchIPOsURL, {params});
+  }
+
+  public displayCompany(companyName: string) {
+    const params = new HttpParams().set("companyName", companyName);
+    return this._http.get<any>(this.displayCompanyURL, {params});
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IpouserService} from './ipouser.service';
 import {IPODetails} from './ipodetails';
+import {Company} from '../company/company';
 
 declare var $: any;
 
@@ -16,6 +17,7 @@ export class IpouserComponent implements OnInit {
   private deleteStatus: string;
   
   private ipoDetailsModel = new IPODetails('','','','','','','');
+  private companyModel = new Company('','','','','','','','','','');
 
   constructor(
     private ipouserService: IpouserService,
@@ -114,8 +116,26 @@ export class IpouserComponent implements OnInit {
     })
   }
 
+  searchIPOs() {
+    let searchCompanyName = $('#searchCompanyName').val();
+    this.ipouserService.searchIOPs(searchCompanyName).subscribe(data => {
+      //update IPODetails list
+      this.ipouserService.ipoDetailsList = data;
+    },
+    error => {
+      console.log(error);
+    })
+  }
 
-
+  displayCompany(item: any) {
+    this.ipouserService.displayCompany(item.companyName).subscribe(data => {
+      console.log(data);
+      this.companyModel = data;
+    },
+    error => {
+      console.log(error);
+    })
+  }
 
 
 }
