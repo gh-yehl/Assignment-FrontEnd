@@ -12,7 +12,7 @@ declare var $: any;
 })
 export class ImportdataComponent implements OnInit {
 
-  private stockPriceModel = new StockPrice('','','','','','','','');
+  public stockPriceModel = new StockPrice('','','','','','','','');
 
   
   uploader: FileUploader;

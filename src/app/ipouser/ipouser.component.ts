@@ -12,15 +12,15 @@ declare var $: any;
 })
 export class IpouserComponent implements OnInit {
 
-  private addStatus: string;
-  private editStatus: string;
-  private deleteStatus: string;
+  public addStatus: string;
+  public editStatus: string;
+  public deleteStatus: string;
   
-  private ipoDetailsModel = new IPODetails('','','','','','','');
-  private companyModel = new Company('','','','','','','','','','');
+  public ipoDetailsModel = new IPODetails('','','','','','','');
+  public companyModel = new Company('','','','','','','','','','');
 
   constructor(
-    private ipouserService: IpouserService,
+    public ipouserService: IpouserService,
   ) { }
 
 

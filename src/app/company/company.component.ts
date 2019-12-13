@@ -10,14 +10,14 @@ declare var $: any;
 })
 export class CompanyComponent implements OnInit {
 
-  private addStatus: string;
-  private editStatus: string;
-  private deleteStatus: string;
+  addStatus: string;
+  editStatus: string;
+  deleteStatus: string;
   
-  private companyModel = new Company('','','','','','','','','','');
+  companyModel = new Company('','','','','','','','','','');
 
   constructor(
-    private companyService: CompanyService,
+    public companyService: CompanyService,
   ) { }
 
   ngOnInit() {

@@ -11,14 +11,14 @@ declare var $: any;
 export class ExchangeComponent implements OnInit {
 
 
-  private addStatus: string;
-  private editStatus: string;
-  private deleteStatus: string;
+  public addStatus: string;
+  public editStatus: string;
+  public deleteStatus: string;
   
-  private stockExchangeModel = new StockExchange('','','','','');
+  public stockExchangeModel = new StockExchange('','','','','');
 
   constructor(
-    private exchangeService: ExchangeService,
+    public exchangeService: ExchangeService,
   ) { }
 
   ngOnInit() {

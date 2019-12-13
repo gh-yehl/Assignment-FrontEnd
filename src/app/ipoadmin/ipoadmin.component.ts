@@ -10,14 +10,14 @@ declare var $: any;
   styleUrls: ['./ipoadmin.component.css']
 })
 export class IpoadminComponent implements OnInit {
-  private addStatus: string;
-  private editStatus: string;
-  private deleteStatus: string;
+  public addStatus: string;
+  public editStatus: string;
+  public deleteStatus: string;
   
-  private ipoDetailsModel = new IPODetails('','','','','','','');
+  public ipoDetailsModel = new IPODetails('','','','','','','');
 
   constructor(
-    private ipoadminService: IpoadminService,
+    public ipoadminService: IpoadminService,
   ) { }
 
   ngOnInit() {
