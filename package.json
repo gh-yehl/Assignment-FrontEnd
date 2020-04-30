@@ -25,7 +25,7 @@
     "bootstrap4-datetimepicker": "^5.2.3",
     "font-awesome": "^4.7.0",
     "fusioncharts": "^3.15.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ng2-file-upload": "^1.4.0",
     "rxjs": "~6.4.0",
